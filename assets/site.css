@@ -1488,3 +1488,7 @@ p {
 		transition: none !important;
 	}
 }
+
+.id-card .portrait img {
+  object-position: 50% 35%;
+}
