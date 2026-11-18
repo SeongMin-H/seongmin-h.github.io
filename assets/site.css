@@ -1490,6 +1490,7 @@ p {
 }
 
 .id-card .portrait img {
-  object-position: 50% 50%;
-  transform: translateY(8px);
+  object-fit: cover;
+  object-position: 50% 0%;
+  transform: none;
 }
