@@ -1494,3 +1494,7 @@ p {
   object-position: 50% 0%;
   transform: none;
 }
+
+.frame:has(img)::after {
+  display: none;
+}
