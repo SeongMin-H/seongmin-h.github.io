@@ -1011,13 +1011,13 @@ p {
 }
 
 .photos {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-	gap: 10px;
+	  display: grid;
+	  grid-template-columns: repeat(auto-fill, minmax(234px, 1fr));
+	  gap: 10px;
 }
 
 .photos.dense {
-	grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+	  grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
 }
 
 .photos .frame {
