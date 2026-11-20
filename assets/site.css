@@ -1498,3 +1498,36 @@ p {
 .frame:has(img)::after {
   display: none;
 }
+
+#formula-photos {
+  display: block;
+  --photo-height: 245px;
+}
+
+#formula-photos .photo-year {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 18px 10px;
+}
+
+#formula-photos .photo-year + .photo-year {
+  margin-top: 28px;
+}
+
+#formula-photos .fig {
+  flex: 0 0 auto;
+  width: calc(var(--photo-height) * var(--photo-ratio, 1.333333));
+  max-width: 100%;
+}
+
+#formula-photos .frame {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: var(--photo-ratio, 4 / 3);
+}
+
+#formula-photos .frame img {
+  object-fit: contain;
+}
