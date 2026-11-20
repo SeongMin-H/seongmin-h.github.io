@@ -165,43 +165,43 @@
 					</div>
 				</div>
 				<div class="photos dense" id="formula-photos"></div>
-				
-				<script>
-				(function () {
-				  const grid = document.getElementById('formula-photos');
-				
-				  const groups = [
-				    { year: 2022, start: 1, end: 9 },
-				    { year: 2023, start: 10, end: 23 }
-				  ];
-				
-				  groups.forEach(function (group) {
-				    for (let n = group.start; n <= group.end; n++) {
-				      const figure = document.createElement('figure');
-				      figure.className = 'fig';
-				
-				      // 각 연도의 첫 사진은 새 줄에서 시작
-				      if (n === group.start) {
-				        figure.style.gridColumn = '1';
-				      }
-				
-				      figure.innerHTML = `
-				        <button class="frame" type="button"
-				                aria-label="Enlarge photo ${n}"
-				                data-label="images/gallery/formula-student/${n}.jpg">
-				          <img src="images/gallery/formula-student/${n}.jpg"
-				               alt="Formula Student Korea ${group.year}, photo ${n}"
-				               onload="this.parentElement.style.aspectRatio = this.naturalHeight > this.naturalWidth ? '4 / 5' : '4 / 3';"
-				               onerror="this.remove()">
-				        </button>
-				        <figcaption>${group.year}</figcaption>
-				      `;
-				
-				      grid.appendChild(figure);
-				    }
-				  });
-				})();
-				</script>
+
+					<script>
+					(function () {
+					  const grid = document.getElementById('formula-photos');
+					
+					  const groups = [
+					    { year: 2022, start: 1, end: 9 },
+					    { year: 2023, start: 10, end: 23 }
+					  ];
+					
+					  groups.forEach(function (group) {
+					    // 연도별로 묶어서 새 줄에서 시작
+					    const yearPhotos = document.createElement('div');
+					    yearPhotos.className = 'photo-year';
+					    grid.appendChild(yearPhotos);
+					
+					    for (let n = group.start; n <= group.end; n++) {
+					      const figure = document.createElement('figure');
+					      figure.className = 'fig';
+					
+					      figure.innerHTML = `
+					        <button class="frame" type="button"
+					                aria-label="Enlarge photo ${n}"
+					                data-label="images/gallery/formula-student/${n}.jpg">
+					          <img src="images/gallery/formula-student/${n}.jpg"
+					               alt="Formula Student Korea ${group.year}, photo ${n}"
+					               onload="this.closest('figure').style.setProperty('--photo-ratio', this.naturalWidth / this.naturalHeight);"
+					               onerror="this.remove()">
+					        </button>
+					        <figcaption>${group.year}</figcaption>
+					      `;
+					
+					      yearPhotos.appendChild(figure);
+					    }
+					  });
+					})();
+					</script>
 			</div>
 		</section>
 		<section class="section" id="lab">
