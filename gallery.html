@@ -164,119 +164,44 @@
 						<strong>Team Member</strong>
 					</div>
 				</div>
-				<div class="photos dense">
-				  <figure class="fig">
-				    <button class="frame" type="button" aria-label="Enlarge photo 1"
-				            data-label="images/gallery/formula-student/1.jpg">
-				      <img src="images/gallery/formula-student/1.jpg"
-				           alt="Formula Student Korea, photo 1"
-				           onload="this.parentElement.style.aspectRatio = this.naturalHeight > this.naturalWidth ? '4 / 5' : '4 / 3';"
-				           onerror="this.remove()">
-				    </button>
-				    <figcaption>2022</figcaption>
-				  </figure>
+				<div class="photos dense" id="formula-photos"></div>
 				
-				  <figure class="fig">
-				    <button class="frame" type="button" aria-label="Enlarge photo 2"
-				            data-label="images/gallery/formula-student/2.jpg">
-				      <img src="images/gallery/formula-student/2.jpg"
-				           alt="Formula Student Korea, photo 2"
-				           onload="this.parentElement.style.aspectRatio = this.naturalHeight > this.naturalWidth ? '4 / 5' : '4 / 3';"
-				           onerror="this.remove()">
-				    </button>
-				    <figcaption>2022</figcaption>
-				  </figure>
+				<script>
+				(function () {
+				  const grid = document.getElementById('formula-photos');
 				
-				  <figure class="fig">
-				    <button class="frame" type="button" aria-label="Enlarge photo 3"
-				            data-label="images/gallery/formula-student/3.jpg">
-				      <img src="images/gallery/formula-student/3.jpg"
-				           alt="Formula Student Korea, photo 3"
-				           onload="this.parentElement.style.aspectRatio = this.naturalHeight > this.naturalWidth ? '4 / 5' : '4 / 3';"
-				           onerror="this.remove()">
-				    </button>
-				    <figcaption>2022</figcaption>
-				  </figure>
+				  const groups = [
+				    { year: 2022, start: 1, end: 9 },
+				    { year: 2023, start: 10, end: 23 }
+				  ];
 				
-				  <figure class="fig">
-				    <button class="frame" type="button" aria-label="Enlarge photo 4"
-				            data-label="images/gallery/formula-student/4.jpg">
-				      <img src="images/gallery/formula-student/4.jpg"
-				           alt="Formula Student Korea, photo 4"
-				           onload="this.parentElement.style.aspectRatio = this.naturalHeight > this.naturalWidth ? '4 / 5' : '4 / 3';"
-				           onerror="this.remove()">
-				    </button>
-				    <figcaption>2022</figcaption>
-				  </figure>
+				  groups.forEach(function (group) {
+				    for (let n = group.start; n <= group.end; n++) {
+				      const figure = document.createElement('figure');
+				      figure.className = 'fig';
 				
-				  <figure class="fig">
-				    <button class="frame" type="button" aria-label="Enlarge photo 5"
-				            data-label="images/gallery/formula-student/5.jpg">
-				      <img src="images/gallery/formula-student/5.jpg"
-				           alt="Formula Student Korea, photo 5"
-				           onload="this.parentElement.style.aspectRatio = this.naturalHeight > this.naturalWidth ? '4 / 5' : '4 / 3';"
-				           onerror="this.remove()">
-				    </button>
-				    <figcaption>2022</figcaption>
-				  </figure>
+				      // 각 연도의 첫 사진은 새 줄에서 시작
+				      if (n === group.start) {
+				        figure.style.gridColumn = '1';
+				      }
 				
-				  <figure class="fig">
-				    <button class="frame" type="button" aria-label="Enlarge photo 6"
-				            data-label="images/gallery/formula-student/6.jpg">
-				      <img src="images/gallery/formula-student/6.jpg"
-				           alt="Formula Student Korea, photo 6"
-				           onload="this.parentElement.style.aspectRatio = this.naturalHeight > this.naturalWidth ? '4 / 5' : '4 / 3';"
-				           onerror="this.remove()">
-				    </button>
-				    <figcaption>2022</figcaption>
-				  </figure>
+				      figure.innerHTML = `
+				        <button class="frame" type="button"
+				                aria-label="Enlarge photo ${n}"
+				                data-label="images/gallery/formula-student/${n}.jpg">
+				          <img src="images/gallery/formula-student/${n}.jpg"
+				               alt="Formula Student Korea ${group.year}, photo ${n}"
+				               onload="this.parentElement.style.aspectRatio = this.naturalHeight > this.naturalWidth ? '4 / 5' : '4 / 3';"
+				               onerror="this.remove()">
+				        </button>
+				        <figcaption>${group.year}</figcaption>
+				      `;
 				
-				  <figure class="fig">
-				    <button class="frame" type="button" aria-label="Enlarge photo 7"
-				            data-label="images/gallery/formula-student/7.jpg">
-				      <img src="images/gallery/formula-student/7.jpg"
-				           alt="Formula Student Korea, photo 7"
-				           onload="this.parentElement.style.aspectRatio = this.naturalHeight > this.naturalWidth ? '4 / 5' : '4 / 3';"
-				           onerror="this.remove()">
-				    </button>
-				    <figcaption>2022</figcaption>
-				  </figure>
-				
-				  <figure class="fig">
-				    <button class="frame" type="button" aria-label="Enlarge photo 8"
-				            data-label="images/gallery/formula-student/8.jpg">
-				      <img src="images/gallery/formula-student/8.jpg"
-				           alt="Formula Student Korea, photo 8"
-				           onload="this.parentElement.style.aspectRatio = this.naturalHeight > this.naturalWidth ? '4 / 5' : '4 / 3';"
-				           onerror="this.remove()">
-				    </button>
-				    <figcaption>2022</figcaption>
-				  </figure>
-
-					<figure class="fig">
-				    <button class="frame" type="button" aria-label="Enlarge photo 9"
-				            data-label="images/gallery/formula-student/9.jpg">
-				      <img src="images/gallery/formula-student/9.jpg"
-				           alt="Formula Student Korea, photo 9"
-				           onload="this.parentElement.style.aspectRatio = this.naturalHeight > this.naturalWidth ? '4 / 5' : '4 / 3';"
-				           onerror="this.remove()">
-				    </button>
-				    <figcaption>2022</figcaption>
-				  </figure>
-					
-					<figure class="fig" style="grid-column: 1;">
-				    <button class="frame" type="button" aria-label="Enlarge photo 10"
-				            data-label="images/gallery/formula-student/10.jpg">
-				      <img src="images/gallery/formula-student/10.jpg"
-				           alt="Formula Student Korea, photo 10"
-				           onload="this.parentElement.style.aspectRatio = this.naturalHeight > this.naturalWidth ? '4 / 5' : '4 / 3';"
-				           onerror="this.remove()">
-				    </button>
-				    <figcaption>2023</figcaption>
-				  </figure>
-
-					
-				</div>
+				      grid.appendChild(figure);
+				    }
+				  });
+				})();
+				</script>
 			</div>
 		</section>
 		<section class="section" id="lab">
