@@ -85,6 +85,7 @@
 				var tile = document.createElement('button');
 				tile.className = 'frame';
 				tile.type = 'button';
+				tile.style.aspectRatio = img.naturalHeight > img.naturalWidth ? '4 / 5' : '4 / 3';
 				tile.setAttribute('aria-label', 'Enlarge photo ' + n + ': ' + label);
 				img.alt = label + ', photo ' + n;
 				tile.appendChild(img);
