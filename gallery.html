@@ -192,6 +192,7 @@
 					                aria-label="Enlarge photo ${n}"
 					                data-label="images/gallery/formula-student/${n}.jpg">
 					          <img src="images/gallery/formula-student/${n}.jpg"
+							  	   loading="lazy"
 					               alt="Formula Student Korea ${group.year}, photo ${n}"
 					               onload="this.closest('figure').style.setProperty('--photo-ratio', this.naturalWidth / this.naturalHeight);"
 					               onerror="this.remove()">
@@ -211,44 +212,41 @@
 				<div class="section-head">
 					<h2>Campus life</h2>
 				</div>
-				<div class="photos">
-				  <figure class="fig">
-				    <button class="frame" type="button"
-				            data-label="images/gallery/lab/1.jpg"
-				            aria-label="Enlarge photo 1">
-				      <img src="images/gallery/lab/1.jpg"
-				           alt="Campus life, photo 1"
-				           onload="this.parentElement.style.aspectRatio = this.naturalHeight > this.naturalWidth ? '4 / 5' : '4 / 3';"
-				           onerror="this.remove()">
-				    </button>
-				    <figcaption>Undergraduate graduation (2025)</figcaption>
-				  </figure>
-				
-				  <figure class="fig">
-				    <button class="frame" type="button"
-				            data-label="images/gallery/lab/2.jpg"
-				            aria-label="Enlarge photo 2">
-				      <img src="images/gallery/lab/2.jpg"
-				           alt="Campus life, photo 2"
-				           onload="this.parentElement.style.aspectRatio = this.naturalHeight > this.naturalWidth ? '4 / 5' : '4 / 3';"
-				           onerror="this.remove()">
-				    </button>
-				    <figcaption>With lab members</figcaption>
-				  </figure>
-				
-				  <figure class="fig">
-				    <button class="frame" type="button"
-				            data-label="images/gallery/lab/3.jpg"
-				            aria-label="Enlarge photo 3">
-				      <img src="images/gallery/lab/3.jpg"
-				           alt="Campus life, photo 3"
-				           onload="this.parentElement.style.aspectRatio = this.naturalHeight > this.naturalWidth ? '4 / 5' : '4 / 3';"
-				           onerror="this.remove()">
-				    </button>
-				    <figcaption>Lab memories</figcaption>
-				  </figure>
+				<div class="photos" id="campus-photos"></div>
+					<script>
+					(function () {
+					  const photos = [
+					    { file: '1.jpg', caption: 'Undergraduate graduation (2025)' },
+					    { file: '2.jpg', caption: 'With lab members' },
+					    { file: '3.jpg', caption: 'Lab memories' }
+					  ];
 					
-				</div>
+					  const grid = document.getElementById('campus-photos');
+					
+					  photos.forEach(function (photo, index) {
+					    const number = index + 1;
+					    const src = `images/gallery/lab/${photo.file}`;
+					    const figure = document.createElement('figure');
+					    figure.className = 'fig';
+					
+					    figure.innerHTML = `
+					      <button class="frame" type="button"
+					              data-label="${src}"
+					              aria-label="Enlarge photo ${number}">
+					        <img loading="lazy"
+					             src="${src}"
+					             alt="Campus life, photo ${number}"
+					             onload="this.parentElement.style.aspectRatio = this.naturalHeight > this.naturalWidth ? '4 / 5' : '4 / 3';"
+					             onerror="this.remove()">
+					      </button>
+					      <figcaption></figcaption>
+					    `;
+					
+					    figure.querySelector('figcaption').textContent = photo.caption;
+					    grid.appendChild(figure);
+					  });
+					})();
+					</script>
 			</div>
 		</section>
 	</main>
